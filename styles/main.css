@@ -9,18 +9,18 @@ html, body {
   height: 100%;
   display: grid;
   grid-gap: 3px;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 7% auto auto;
   grid-template-areas:
-    "h h h h h h h h h h h h"
-    "m m c c c c c c c c c c"
-    "f f f f f f f f f f f f";
+    "header"
+    "sidebar"
+    "content"
+    "footer"
 }
 
+/* Header */
 .header  {
-  grid-area: h;
+  grid-area: header;
   background-color: green;
-  border: 2px solid #000;
 }
 
 .navbar {
@@ -50,20 +50,77 @@ html, body {
   margin-right: auto;
 }
 
-.menu {
-  grid-area: m;
+/* SideBar */
+.sidebar {
+  grid-area: sidebar;
   background-color: light-blue;
-  border: 2px solid #000;
 }
+
+.sidebar-nav {
+  padding-top: 2em;
+  margin-left: 3em;
+}
+
+.sidebar-nav h3 {
+  margin-bottom: -0.45em;
+}
+
+.sidebar-nav ul {
+  display: inline;
+}
+
+.sidebar-nav ul li {
+  list-style: none;
+  margin: 0.75em 0;
+}
+
+.sidebar-nav ul li a {
+  text-decoration: none;
+}
+
+/* Content | Portfolio Grid */
 
 .content {
-  grid-area: c;
-  background-color: red;
-  border: 2px solid #000;
+  grid-area: content;
 }
 
+.img-container {
+  display: inline-block;
+  margin: 2px;
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 0 2px 1px #999;
+  background-color: #f4f4f4;
+}
+
+.img-container img {
+  height: 300px;
+  width: inherit;
+}
+
+/* Footer */
 .footer {
-  grid-area: f;
+  grid-area: footer;
   background-color: grey;
-  border: 2px solid #000;
+}
+
+@media only screen and (min-width: 500px) {
+  .container {
+    grid-template-columns: 20% auto;
+    grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer"
+  }
+
+@media only screen and (min-width: 600px) {
+  .container {
+    grid-template-columns: 240px auto;
+    grid-template-areas:
+      "header header header"
+      "sidebar content content"
+      "footer footer footer"
+  }
+
+  /* */
 }
